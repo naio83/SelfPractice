@@ -1,4 +1,4 @@
-package chalenge;
+package algorithms;
 
 import java.util.Scanner;
 

@@ -32,8 +32,8 @@ public class problems {
 		//commons.largestPalindromeProduct();
 		//commons.smallestMultiple();
 		//commons.sumSquareDifference();
-		commons.largestProduct();
-	
+		//commons.largestProduct();
+		  commons.sumaPrimosMenores2Millones();	
 	}
 	
 }

@@ -94,6 +94,25 @@ public class Commons {
 	}
 	
 	
+	public void sumaPrimosMenores2Millones(){
+	
+	long sumaPrimos=0;
+	for (int i = 2; i <= 2000000; i++) {
+		if(esPrimo(i)){
+			sumaPrimos+=i;
+			System.out.println(i);
+		}
+		
+	}	
+	
+	System.out.println(sumaPrimos);
+	}
+	
+	
+	
+	
+	
+	
 	
 /********************FIBONACCI*******************************/	
 	

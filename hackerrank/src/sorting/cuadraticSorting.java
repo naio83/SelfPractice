@@ -65,62 +65,69 @@ public class cuadraticSorting {
 		int lengthLista = listaDesordenada.length;			
 			int temp=0;
 	        for (int i = 0; i < lengthLista; i++) {
-	        	int j = i;
-	        	while(j>0 && listaDesordenada[j] < listaDesordenada[j-1]){
-	        		temp = listaDesordenada[j];
-	        		listaDesordenada[j] = listaDesordenada[j-1];
-	        		listaDesordenada[j-1] = temp;
-	        		j--;
-	        	}
-	        			
-	        }
-	
+	        	for (int j = i; j >0; j--) {
+	        		if(listaDesordenada[j] < listaDesordenada[j-1]){
+		        		temp = listaDesordenada[j];
+		        		listaDesordenada[j] = listaDesordenada[j-1];
+		        		listaDesordenada[j-1] = temp;
+	        		}
+	        	}	        		        		        		        		        			
+	        }	
 		//System.out.println(Arrays.toString(listaDesordenada));
 	}
 	
 	
 	
 	public static void main(String[] args) {
-		//int[] listaDesordenada = {3,1,2,5,6,9,8,0,4,7};
-		int[] listaDesordenada = new int[10000];
+		//int[] listaDesordenada0 = {3,1,2,5,6,9,8,0,4,7};
+		int[] listaDesordenada1 = new int[10000];
+		int[] listaDesordenada2 = new int[10000];
+		int[] listaDesordenada3 = new int[10000];
 		Random randomGenerator = new Random();
 		int randomInt = 0;
 		for (int i = 0; i < 10000; i++) {
 			randomInt = randomGenerator.nextInt(100);
-			listaDesordenada[i]=randomInt;
+			listaDesordenada1[i]=randomInt;
+			listaDesordenada2[i]=randomInt;
+			listaDesordenada3[i]=randomInt;
 			
 		}
 		
-		//System.out.println("lista Desordenada: ");
-		//System.out.println(Arrays.toString(listaDesordenada));
-		//System.out.println("insertionSort: ");
-		long insertionSortTStart = System.currentTimeMillis();
-		insertionSort(listaDesordenada);
-		long insertionSortTEnd = System.currentTimeMillis();
+		/*System.out.println("lista Desordenada: ");
+		System.out.println(Arrays.toString(listaDesordenada0));
+		insertionSort(listaDesordenada0);
+		System.out.println(Arrays.toString(listaDesordenada0));*/
+		
+		
+		
 		
 		//System.out.println("bubbleSort: ");
 		long bubbleSortTStart = System.currentTimeMillis();
-		bubbleSort(listaDesordenada);
+		bubbleSort(listaDesordenada1);
 		long bubbleSortTEnd = System.currentTimeMillis();
 		
 		//System.out.println("selectionSort: ");
 		long selectionSortTStart = System.currentTimeMillis();
-		selectionSort(listaDesordenada);
+		selectionSort(listaDesordenada2);
 		long selectionSortTEnd = System.currentTimeMillis();
 		
+		//System.out.println("insertionSort: ");
+		long insertionSortTStart = System.currentTimeMillis();
+		insertionSort(listaDesordenada3);
+		long insertionSortTEnd = System.currentTimeMillis();
 		
 		
-		long insertionTimeDelta = insertionSortTEnd - insertionSortTStart;
 		long bubbleTimeDelta = bubbleSortTEnd - bubbleSortTStart;
 		long selectionTimeDelta = selectionSortTEnd - selectionSortTStart;
+		long insertionTimeDelta = insertionSortTEnd - insertionSortTStart;
 		
-		double insertionElapsedSeconds = insertionTimeDelta / 1000.0;
 		double bubbleElapsedSeconds = bubbleTimeDelta / 1000.0;
 		double selectionElapsedSeconds = selectionTimeDelta / 1000.0;
+		double insertionElapsedSeconds = insertionTimeDelta / 1000.0;
 		
-		System.out.println("insertionElapsedSeconds: "+insertionElapsedSeconds);
 		System.out.println("bubbleElapsedSeconds: "+bubbleElapsedSeconds);
 		System.out.println("selectionElapsedSeconds: "+selectionElapsedSeconds);
+		System.out.println("insertionElapsedSeconds: "+insertionElapsedSeconds);  
 	}
 		
 		
